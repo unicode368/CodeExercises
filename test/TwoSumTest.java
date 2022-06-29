@@ -37,7 +37,7 @@ public class TwoSumTest {
 
     @Test
     public void testAddTwoNumbers() {
-        //System.out.println(description);
+        System.out.println(description);
         assertArrayEquals(expectedResult,
                 TwoSum.twoSum(nums, target));
     }
