@@ -6,7 +6,7 @@ public class ContainerWithMostWater {
     }
 
     public static int maxArea(int[] height) {
-        int max = 0;
+        nt max = 0;
         int maxIndex = 0;
         int prevMax = 0;
         int prevMaxIndex = 0;
