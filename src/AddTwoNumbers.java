@@ -7,53 +7,33 @@ public class AddTwoNumbers {
         ListNode(int val, ListNode next) { this.val = val; this.next = next; }
 
         public String toString() {
-            String result = val + " ";
-            if (next != null) {
-                result += next.toString();
+            var curr = this;
+            var sb = new StringBuilder();
+            while (curr != null) {
+                sb.append(curr.val).append(" ");
+                curr = curr.next;
             }
-            return result;
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            if(this == obj){
-                return true;
-            }
-
-            if (obj == null || obj.getClass() != this.getClass()) {
-                return false;
-            }
-
-            ListNode temp = (ListNode) obj;
-            return this.toString().equals(temp.toString());
+            return sb.toString();
         }
     }
+
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        int addUp = 0;
+        int carry = 0;
         ListNode result = new ListNode();
         ListNode temp = result;
-        while(l1 != null || l2 != null) {
-            if(l1 == null) {
-                temp.val += l2.val;
-                l2 = l2.next;
-            } else if(l2 == null) {
-                temp.val += l1.val;
-                l1 = l1.next;
-            } else {
-                temp.val += l1.val + l2.val;
-                l1 = l1.next;
-                l2 = l2.next;
-            }
-            addUp = 0;
-            if(temp.val >= 10) {
-                addUp = 1;
-                temp.val -= 10;
-            }
-            if(l1 != null || l2 != null || addUp > 0) {
-                temp.next = new ListNode(addUp);
+        while(l1 != null || l2 != null || carry > 0) {
+            var v1 = l1 == null ? 0 : l1.val;
+            var v2 = l2 == null ? 0 : l2.val;
+            var v = carry + v1 + v2;
+            temp.val = v % 10;
+            carry = v / 10;
+            l1 = l1 == null ? null : l1.next;
+            l2 = l2 == null ? null : l2.next;
+
+            if(l1 != null || l2 != null || carry > 0) {
+                temp.next = new ListNode(0);
                 temp = temp.next;
             }
-
         }
         return result;
     }
