@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 @RunWith(Parameterized.class)
 public class TwoSumTest {
