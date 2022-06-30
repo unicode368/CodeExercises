@@ -16,7 +16,7 @@ public class TwoSumTest {
     String description;
 
     public TwoSumTest(int[] nums, int target,
-                         int[] expectedResult, String description) {
+                      int[] expectedResult, String description) {
         this.nums = nums;
         this.target = target;
         this.expectedResult = expectedResult;
