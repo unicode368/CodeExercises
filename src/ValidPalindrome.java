@@ -1,11 +1,18 @@
 public class ValidPalindrome {
     public static boolean isPalindrome(String s) {
-        char[] palindrome = s.replaceAll("[^a-zA-Z\\d\\s]", "")
-                .replaceAll(" +", "").toLowerCase().toCharArray();
-        for (int i = 0; i < palindrome.length - i; i++) {
-            if (palindrome[i] !=
-                    palindrome[palindrome.length - i - 1]) {
+        int j = s.length() - 1;
+        int i = 0;
+        while (i < j) {
+            if (!Character.isLetterOrDigit(s.charAt(i))) {
+                i++;
+            } else if (!Character.isLetterOrDigit(s.charAt(j))) {
+                j--;
+            } else if (Character.toLowerCase(s.charAt(i))
+                    != Character.toLowerCase(s.charAt(j))) {
                 return false;
+            } else {
+                i++;
+                j--;
             }
         }
         return true;
