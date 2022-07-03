@@ -2,13 +2,13 @@ package listUtils;
 
 public class ListUtils {
 
-    public static ListNode createList(int[] number) {
-        ListNode result = new ListNode();
+    public static ListNodeString createList(int[] number) {
+        ListNodeString result = new ListNodeString();
         ListNode temp = result;
         for (int i = 0; i < number.length; i++) {
             temp.val = number[i];
             if (i != number.length - 1) {
-                temp.next = new ListNode();
+                temp.next = new ListNodeString();
                 temp = temp.next;
             }
         }
