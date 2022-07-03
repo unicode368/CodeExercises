@@ -3,7 +3,7 @@ public class ReverseInteger {
         long res = 0;
         int mod = Math.abs(x);
         int i = (int) Math.log10(mod);
-        if(i == 0 && (mod > 10 || mod < -10)) {
+        if(i == 0 && mod == Integer.MIN_VALUE) {
             return 0;
         }
         while(x != 0 && i >= 0) {
@@ -17,10 +17,5 @@ public class ReverseInteger {
         } else {
             return (int) res;
         }
-    }
-
-    public static void main(String[] args) {
-        System.out.println(reverse(0));
-        //System.out.println(Math.abs(-1));
     }
 }
