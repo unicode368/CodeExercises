@@ -29,11 +29,8 @@ public class ListUtils {
                 temp = temp.next;
             }
         }
-        if (cycle == null) {
-            return result;
-        } else {
-            temp.next = cycle;
-        }
+
+        temp.next = cycle;
         return result;
     }
 }
