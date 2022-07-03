@@ -11,9 +11,9 @@ public class LinkedListCycle {
             head = head.next;
             fastPointer = fastPointer.next == null ? null :
                     fastPointer.next.next;
-        } while(head != fastPointer || fastPointer != null);
+        } while(head != fastPointer && fastPointer != null);
 
-        return true;
+        return fastPointer != null;
     }
 
     public static void main(String[] args) {
