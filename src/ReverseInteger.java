@@ -11,6 +11,7 @@ public class ReverseInteger {
             x /= 10;
             i--;
         }
+
         if(res > Integer.MAX_VALUE ||
                 res < Integer.MIN_VALUE) {
             return 0;

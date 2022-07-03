@@ -1,40 +1,26 @@
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-@RunWith(Parameterized.class)
 public class ReverseIntegerTest {
-    int number;
-    int expectedResult;
-    String description;
 
-    public ReverseIntegerTest(int number, int expectedResult,
-                        String description) {
-        this.number = number;
-        this.expectedResult = expectedResult;
-        this.description = description;
+    public static Stream<Arguments> getNumsAndReverse() {
+        return Stream.of(
+                Arguments.of( 123 , 321),
+                Arguments.of( -123 , -321),
+                Arguments.of( 9 , 9),
+                Arguments.of( 0 , 0),
+                Arguments.of( -2147483648 , 0)
+        );
     }
 
-    @Parameterized.Parameters
-    public static Collection numsAndTargets() {
-        return Arrays.asList(new Object[][] {
-                { 123 , 321, "Plain reverse" },
-                { -123 , -321, "Reverse negative number" },
-                { 9 , 9, "Less than 10" },
-                { 0 , 0, "Reverse zero" },
-                {-2147483648, 0, "Reversed number out of bounds"}
-        });
-    }
-
-    @Test
-    public void testAddTwoNumbers() {
-        System.out.println(description);
+    @ParameterizedTest(name = "Reverse of {0} is {1}")
+    @MethodSource("getNumsAndReverse")
+    public void testReverseNumber(int number, int expectedResult) {
         assertEquals(expectedResult,
                 ReverseInteger.reverse(number));
     }
