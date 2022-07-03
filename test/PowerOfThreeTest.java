@@ -1,6 +1,7 @@
 import org.junit.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -12,13 +13,19 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PowerOfThreeTest {
-    @ParameterizedTest
-    @ValueSource(ints = {27, 19647, 1, 0, -3}, booleans = {true, false, true, false, false},
-    strings = {"Three to the power of 3", "Aliquot but not power of", "Power of 3 to 0",
-            "Zero", "Not the power of three"})
-    public void testIsPowerOfThree(int number, boolean expectedResult,
-                                   String description) {
-        System.out.println(description);
+
+    private static Stream<Arguments> provideParameters() {
+        return Stream.of(
+                Arguments.of(27, true),
+                Arguments.of(19647, false),
+                Arguments.of(1, true),
+                Arguments.of(0, false),
+                Arguments.of(-3, false)
+        );
+    }
+    @ParameterizedTest(name = "{0} is power of three - {1}")
+    @MethodSource("provideParameters")
+    public void testIsPowerOfThree(int number, boolean expectedResult) {
         assertEquals(expectedResult,
                 PowerOfThree.isPowerOfThree(number));
     }
