@@ -1,23 +1,15 @@
 public class StrStr {
     public static int strStr(String haystack, String needle) {
-        char[] haystackChars = haystack.toCharArray();
-        char[] needleChars = needle.toCharArray();
-        int haystackLength = haystackChars.length;
-        int needleLength = needleChars.length;
-        if(needleLength == 0) {
-            return 0;
-        } else if(haystackLength == 0) {
-            return -1;
-        }
-        int intermediateVar;
+        int haystackLength = haystack.length();
+        int needleLength = needle.length();
         boolean fullOccurence = true;
         for(int i = 0; haystackLength - i >= needleLength; i++) {
-            if(haystackChars[i] == needleChars[0]) {
-                for(intermediateVar = 1; intermediateVar < needleLength;
-                    intermediateVar++) {
-                    if (haystackChars[i + intermediateVar]
-                            != needleChars[intermediateVar]) {
+            if(haystack.charAt(i) == needle.charAt(0)) {
+                for(int j = 1; j < needleLength && i + j < haystackLength; j++) {
+                    if (haystack.charAt(i + j)
+                            != needle.charAt(j)) {
                         fullOccurence = false;
+                        break;
                     }
                 }
                 if (fullOccurence) {
