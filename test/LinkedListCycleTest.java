@@ -11,27 +11,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class LinkedListCycleTest {
 
     private static Stream<Arguments> provideParameters() {
-        int[][] params = new int[][] {
-                new int[]{3,2,0,-4},
-                new int[]{-1,2},
-                new int[]{1},
-        };
-        
         return Stream.of(
-                Arguments.of(LinkedListCycle.createList(params[0], 1),
-                        Arrays.toString(params[0]), 1, true),
-                Arguments.of(LinkedListCycle.createList(params[1], -1),
-                        Arrays.toString(params[1]), -1, false),
-                Arguments.of(LinkedListCycle.createList(params[2], -1),
-                        Arrays.toString(params[2]), -1, false)
+                Arguments.of(new int[]{3,2,0,-4},
+                        1, true),
+                Arguments.of(new int[]{-1,2},
+                        -1, false),
+                Arguments.of(new int[]{1},
+                        -1, false)
         );
     }
 
-    @ParameterizedTest(name = "List {1} has cycle in position {2} - {3}")
+    @ParameterizedTest(name = "List {0} has cycle in position {1} - {2}")
     @MethodSource("provideParameters")
-    public void testHasCycle(LinkedListCycle.ListNode list, String str, int pos,
+    public void testHasCycle(int[] list, int pos,
                              boolean expectedResult) {
-        assertEquals(expectedResult, LinkedListCycle.hasCycle(list));
+        assertEquals(expectedResult, LinkedListCycle.hasCycle(
+                LinkedListCycle.createList(list, pos)));
     }
 }
 
