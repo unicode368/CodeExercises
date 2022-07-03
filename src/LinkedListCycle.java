@@ -1,13 +1,6 @@
-public class LinkedListCycle {
-    static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
-    }
+import listUtils.ListNode;
 
+public class LinkedListCycle {
     public static boolean hasCycle(ListNode head) {
         ListNode fastPointer = head;
         do {
@@ -23,25 +16,4 @@ public class LinkedListCycle {
         return true;
     }
 
-    public static ListNode createList(int[] number, int pos) {
-        ListNode result = new ListNode(0);
-        ListNode temp = result;
-        ListNode cycle = null;
-        for (int i = 0; i < number.length; i++) {
-            temp.val = number[i];
-            if (i == pos) {
-                cycle = temp;
-            }
-            if (i != number.length - 1) {
-                temp.next = new ListNode(0);
-                temp = temp.next;
-            }
-        }
-        if (cycle == null) {
-            return result;
-        } else {
-            temp.next = cycle;
-        }
-        return result;
-    }
 }

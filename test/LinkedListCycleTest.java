@@ -1,3 +1,4 @@
+import listUtils.ListUtils;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -26,7 +27,7 @@ public class LinkedListCycleTest {
     public void testHasCycle(int[] list, int pos,
                              boolean expectedResult) {
         assertEquals(expectedResult, LinkedListCycle.hasCycle(
-                LinkedListCycle.createList(list, pos)));
+                ListUtils.createListWithCycles(list, pos)));
     }
 }
 
