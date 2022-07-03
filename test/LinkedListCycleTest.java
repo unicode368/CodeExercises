@@ -16,6 +16,7 @@ public class LinkedListCycleTest {
                 new int[]{-1,2},
                 new int[]{1},
         };
+        
         return Stream.of(
                 Arguments.of(LinkedListCycle.createList(params[0], 1),
                         Arrays.toString(params[0]), 1, true),
