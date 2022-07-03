@@ -1,38 +1,35 @@
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.runners.Parameterized;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-@RunWith(Parameterized.class)
 public class LinkedListCycleTest {
-    LinkedListCycle.ListNode list;
-    boolean expectedResult;
-    String description;
 
-    public LinkedListCycleTest(LinkedListCycle.ListNode list, boolean expectedResult,
-                        String description) {
-        this.list = list;
-        this.expectedResult = expectedResult;
-        this.description = description;
+    private static Stream<Arguments> provideParameters() {
+        int[][] params = new int[][] {
+                new int[]{3,2,0,-4},
+                new int[]{-1,2},
+                new int[]{1},
+        };
+        return Stream.of(
+                Arguments.of(LinkedListCycle.createList(params[0], 1),
+                        Arrays.toString(params[0]), 1, true),
+                Arguments.of(LinkedListCycle.createList(params[1], -1),
+                        Arrays.toString(params[1]), -1, false),
+                Arguments.of(LinkedListCycle.createList(params[2], -1),
+                        Arrays.toString(params[2]), -1, false)
+        );
     }
 
-    @Parameterized.Parameters
-    public static Collection numsAndTargets() {
-        return Arrays.asList(new Object[][] {
-                { LinkedListCycle.createList(new int[]{3,2,0,-4}, 1) , true, "Has cycle" },
-                { LinkedListCycle.createList(new int[]{-1,2}, -1) , false, "Doesn't have cycle" },
-                { LinkedListCycle.createList(new int[]{1}, -1) , false, "One element" }
-        });
-    }
-
-    @Test
-    public void testAddTwoNumbers() {
-        System.out.println(description);
+    @ParameterizedTest(name = "List {1} has cycle in position {2} - {3}")
+    @MethodSource("provideParameters")
+    public void testHasCycle(LinkedListCycle.ListNode list, String str, int pos,
+                             boolean expectedResult) {
         assertEquals(expectedResult, LinkedListCycle.hasCycle(list));
     }
 }

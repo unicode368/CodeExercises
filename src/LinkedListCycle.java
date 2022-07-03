@@ -1,5 +1,4 @@
 public class LinkedListCycle {
-
     static class ListNode {
         int val;
         ListNode next;
