@@ -22,7 +22,7 @@ public class PlusOneTest {
     }
 
     @Parameterized.Parameters
-    public static Collection numsAndTargets() {
+    public static Collection numsAndResults() {
         return Arrays.asList(new Object[][] {
                 { new int[]{1,2,3} , new int[]{1,2,4}, "Add to digit-ascending number" },
                 { new int[]{4,3,2,1} , new int[]{4,3,2,2}, "Add to digit-descending number" },
@@ -32,7 +32,7 @@ public class PlusOneTest {
     }
 
     @Test
-    public void testAddTwoNumbers() {
+    public void testPlusOne() {
         System.out.println(description);
         assertArrayEquals(expectedResult,
                 PlusOne.plusOne(inputNumber));
