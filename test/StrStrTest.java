@@ -19,8 +19,11 @@ public class StrStrTest {
                 Arguments.of("hello", "ll", 2),
                 Arguments.of("aaaaa", "bba", -1),
                 Arguments.of("aaaaa", "", 0),
-                Arguments.of("hello", "ll", 2),
-                Arguments.of("hello", "ll", 2)
+                Arguments.of("", "aaaaa", 0),
+                Arguments.of("haha", "ha", 0),
+                Arguments.of("advertisement", "ment", 9),
+                Arguments.of("ment", "advertisement", -1),
+                Arguments.of("cat", "cat", 0)
         );
     }
 
