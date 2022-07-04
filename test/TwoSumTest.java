@@ -37,37 +37,7 @@ public class TwoSumTest {
 
     @Test
     public void testAddTwoNumbers() {
-        //System.out.println(description);
         assertArrayEquals(expectedResult,
                 TwoSum.twoSum(nums, target));
     }
-    /*public void testNine(int[] nums, int target) {
-        //int[] nums = new int[]{2,7,11,15};
-        //int target = 9;
-        assertArrayEquals(new int[]{0,1},
-                TwoSum.twoSum(nums, target));
-    }
-
-    @Test
-    public void testSixTwoEdgy() {
-        int[] nums = new int[]{3,2,4};
-        int target = 6;
-        assertArrayEquals(new int[]{1,2},
-                TwoSum.twoSum(nums, target));
-    }
-
-    @Test
-    public void testSixWithTwoOnly() {
-        int[] nums = new int[]{3,3};
-        int target = 6;
-        assertArrayEquals(new int[]{0,1},
-                TwoSum.twoSum(nums, target));
-    }
-
-    @Test
-    public void testAbsent() {
-        int[] nums = new int[]{3,3};
-        int target = 1;
-        assertNull(TwoSum.twoSum(nums, target));
-    }*/
 }
