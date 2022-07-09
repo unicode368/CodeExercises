@@ -30,4 +30,5 @@ public class TwoSumTest {
         assertArrayEquals(expectedResult,
                 TwoSum.twoSum(nums, target));
     }
+    
 }

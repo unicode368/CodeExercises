@@ -1,7 +1,6 @@
 package listUtils;
 
 public class ListUtils {
-
     public static ListNodeString createList(int[] number) {
         ListNodeString result = new ListNodeString();
         ListNode temp = result;
