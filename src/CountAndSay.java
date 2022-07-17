@@ -1,29 +1,37 @@
 public class CountAndSay {
     public static String countAndSay(int n) {
-        int count = 1;
-        int j = 0;
+        int count = 0;
+        int start = 0;
+        int end = 0;
         StringBuilder res = new StringBuilder();
         for(int i = 1; i <= n; i++) {
             if(i == 1) {
                 res.append("1");
             } else {
                 String s = res.toString();
-                do {
-                    if(j < s.length() - 1 && s.charAt(j) == s.charAt(j + 1)) {
+                res = new StringBuilder();
+                while (end < s.length()) {
+                    if(s.charAt(start) == s.charAt(end)) {
                         ++count;
+                        ++end;
                     } else {
-                        res.insert(0, count);
-                        count = 1;
+                        res.append(count);
+                        res.append(s.charAt(start));
+                        start = end;
+                        count = 0;
                     }
-                    ++j;
-                } while (j < s.length() - 1);
-                j = 0;
+                }
+                res.append(count);
+                res.append(s.charAt(start));
+                start = 0;
+                end = start;
+                count = 0;
             }
         }
         return res.toString();
     }
 
     public static void main(String[] args) {
-        countAndSay(3);
+        System.out.println(countAndSay(10));
     }
 }
