@@ -1,17 +1,15 @@
 public class TrailingZeroes {
     public static int trailingZeroes(int n) {
-        int counter = 0;
-        int mul = 1;
+        int twosCounter = 0;
+        int fivesCounter = 0;
         for(int i = n; i > 0; i--) {
             if(i % 5 == 0) {
-                mul = i * (i - 1);
-                while(mul % 10 == 0) {
-                    mul /= 10;
-                    counter++;
-                }
+                fivesCounter++;
+            } else if (i % 2 == 0) {
+                twosCounter++;
             }
         }
-        return counter;
+        return Math.max(fivesCounter, twosCounter);
     }
 
     public static void main(String[] args) {
