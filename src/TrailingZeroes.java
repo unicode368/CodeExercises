@@ -2,20 +2,22 @@ public class TrailingZeroes {
     public static int trailingZeroes(int n) {
         int twosCounter = 0;
         int fivesCounter = 0;
+        int val;
         for(int i = n; i > 0; i--) {
-            if (i % 5 == 0 && i % 2 == 0) {
+            val = i;
+            while (val % 5 == 0) {
                 fivesCounter++;
+                val /= 5;
+            }
+            while (val % 2 == 0) {
                 twosCounter++;
-            } else if(i % 5 == 0) {
-                fivesCounter++;
-            } else if (i % 2 == 0) {
-                twosCounter++;
+                val /= 2;
             }
         }
         return Math.min(fivesCounter, twosCounter);
     }
 
     public static void main(String[] args) {
-        System.out.println(trailingZeroes(50));
+        System.out.println(trailingZeroes(30));
     }
 }
