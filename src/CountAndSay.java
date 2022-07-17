@@ -1,5 +1,5 @@
 public class CountAndSay {
-    public static String countAndSay(int n) {
+    public String countAndSay(int n) {
         int count = 0;
         int start = 0;
         int end = 0;
@@ -29,9 +29,5 @@ public class CountAndSay {
             }
         }
         return res.toString();
-    }
-
-    public static void main(String[] args) {
-        System.out.println(countAndSay(10));
     }
 }
