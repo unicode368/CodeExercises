@@ -39,8 +39,4 @@ public class PlusOne {
         }
         return result;
     }
-
-    public static void main(String[] args) {
-        System.out.println(Arrays.toString(plusOne(new int[]{9})));
-    }
 }
