@@ -1,9 +1,8 @@
 public class TrailingZeroes {
     public static int trailingZeroes(int n) {
         int twosCounter = 0;
-        int fivesCounter = 0;
+        int fivesCounter = n / 5;
         int val;
-        fivesCounter = n / 5;
         for(int i = n; i > 0; i--) {
             val = i;
             while (val % 2 == 0) {
