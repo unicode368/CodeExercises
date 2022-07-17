@@ -20,7 +20,7 @@ public class LongestSubstrWithUniqCharsTest {
 
     @ParameterizedTest(name = "Length of longest substring with unique characters of {0} is {1}")
     @MethodSource("provideParameters")
-    public void testAddTwoNumbers(String string, int expectedResult) {
+    public void testLongestSubstrWithUniqChars(String string, int expectedResult) {
         assertEquals(expectedResult,
                 new LongestSubstrWithUniqChars()
                         .lengthOfLongestSubstring(string));
