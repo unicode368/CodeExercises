@@ -3,12 +3,9 @@ public class TrailingZeroes {
         int twosCounter = 0;
         int fivesCounter = 0;
         int val;
+        fivesCounter = n / 5;
         for(int i = n; i > 0; i--) {
             val = i;
-            while (val % 5 == 0) {
-                fivesCounter++;
-                val /= 5;
-            }
             while (val % 2 == 0) {
                 twosCounter++;
                 val /= 2;
