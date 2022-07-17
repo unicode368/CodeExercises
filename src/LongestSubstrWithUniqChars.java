@@ -4,23 +4,27 @@ import java.util.HashSet;
 
 public class LongestSubstrWithUniqChars {
     public static int lengthOfLongestSubstring(String s) {
-        HashMap<Character, Integer> uniqSubstr = new HashMap<>();
-        int i = 0;
+        HashSet<Character> uniqSubstr = new HashSet<>();
+        int start = 0;
+        int end = 0;
         int max = 0;
-        while (i < s.length()) {
-            if (uniqSubstr.size() > 0 && uniqSubstr.putIfAbsent(s.charAt(i), i) != null) {
+        while (end < s.length()) {
+            if (!uniqSubstr.add(s.charAt(end))) {
                 if (max < uniqSubstr.size()) {
                     max = uniqSubstr.size();
                 }
-                uniqSubstr = new HashMap<>();
-                if(s.charAt(i - 1) == s.charAt(i)) {
-
-                }
+                uniqSubstr = new HashSet<>();
+                start++;
+                end = start;
             } else {
-                uniqSubstr.put(s.charAt(i), i);
-                i++;
+                uniqSubstr.add(s.charAt(end));
+                end++;
             }
         }
         return Math.max(max, uniqSubstr.size());
+    }
+
+    public static void main(String[] args) {
+        System.out.println(lengthOfLongestSubstring("abcabcbb"));
     }
 }
