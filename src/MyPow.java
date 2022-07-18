@@ -5,25 +5,28 @@ public class MyPow {
         } else if(x == -1) {
             return -1 * (n % 2 == 0 ? -1 : 1);
         }
-        double base = x;
-        if(n == 0) {
-            return 1.0;
-        } else if(n > 0) {
-            while(n > 1 && (x <= 10000 && Math.abs(base) > 1 || Math.abs(x) > .0000000001)) {
-                x *= base;
-                --n;
-            }
+        double res = myPowDividedByTwo(x, n);
+        if(n < 0) {
+            return 1 / res;
         } else {
-            while(n < -1) {
-                x *= base;
-                ++n;
-            }
-            x = 1/x;
+            return res;
         }
-        return x;
     }
 
-    public static void main(String[] args) {
-        System.out.println(myPow(0.44894,-5));
+    public static double myPowDividedByTwo(double x, int n) {
+        if(x == 1.0 || x == 0.0) {
+            return x;
+        }
+        if (n == 0) {
+            return 1;
+        }
+
+        double res = myPowDividedByTwo(x, n / 2);
+        res = res * res;
+
+        if (n % 2 != 0) {
+            res = x * res;
+        }
+        return res;
     }
 }
