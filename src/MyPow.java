@@ -1,5 +1,5 @@
 public class MyPow {
-    public static double myPow(double x, int n) {
+    public double myPow(double x, int n) {
         if(x == 1.0 || x == 0.0) {
             return x;
         } else if(x == -1) {
@@ -13,7 +13,7 @@ public class MyPow {
         }
     }
 
-    public static double myPowDividedByTwo(double x, int n) {
+    public double myPowDividedByTwo(double x, int n) {
         if(x == 1.0 || x == 0.0) {
             return x;
         }
