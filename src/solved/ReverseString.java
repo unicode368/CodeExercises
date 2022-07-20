@@ -6,7 +6,7 @@ public class ReverseString {
 
     char[] s;
 
-    ReverseString(char[] s) {
+    public ReverseString(char[] s) {
         this.s = s;
     }
 

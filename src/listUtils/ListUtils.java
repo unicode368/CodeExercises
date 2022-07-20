@@ -2,6 +2,9 @@ package listUtils;
 
 public class ListUtils {
     public static ListNodeString createList(int[] number) {
+        if (number.length == 0) {
+            return null;
+        }
         ListNodeString result = new ListNodeString();
         ListNode temp = result;
         for (int i = 0; i < number.length; i++) {
