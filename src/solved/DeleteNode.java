@@ -1,10 +1,12 @@
+package solved;
+
 import listUtils.ListNode;
 import listUtils.ListNodeString;
 
 public class DeleteNode {
-    ListNodeString head;
+    public ListNodeString head;
 
-    DeleteNode(ListNodeString head) {
+    public DeleteNode(ListNodeString head) {
         this.head = head;
     }
 
