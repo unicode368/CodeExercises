@@ -26,7 +26,7 @@ public class MergeTwoSortedListsTest {
     }
 
     @Parameterized.Parameters
-    public static Collection numsAndTargets() {
+    public static Collection lists() {
         return Arrays.asList(new Object[][] {
                 { MergeTwoSortedLists.createList(new int[]{1,2,4}) ,
                         MergeTwoSortedLists.createList(new int[]{1,3,4}) ,
