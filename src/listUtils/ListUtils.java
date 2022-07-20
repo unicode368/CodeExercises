@@ -14,19 +14,6 @@ public class ListUtils {
         return result;
     }
 
-    public static ListNode createPlainList(int[] number) {
-        ListNode result = new ListNodeString();
-        ListNode temp = result;
-        for (int i = 0; i < number.length; i++) {
-            temp.val = number[i];
-            if (i != number.length - 1) {
-                temp.next = new ListNode();
-                temp = temp.next;
-            }
-        }
-        return result;
-    }
-
     public static ListNode createListWithCycles(int[] number, int cyclePos) {
         ListNode result = new ListNode(0);
         ListNode temp = result;

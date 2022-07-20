@@ -1,8 +1,14 @@
 import listUtils.ListNode;
-import listUtils.ListUtils;
+import listUtils.ListNodeString;
 
 public class DeleteNode {
-    public static void deleteNode(ListNode node) {
+    ListNodeString head;
+
+    DeleteNode(ListNodeString head) {
+        this.head = head;
+    }
+
+    public void deleteNode(ListNode node) {
         if (node == null) {
             return;
         }
@@ -15,7 +21,7 @@ public class DeleteNode {
         curr.next = null;
     }
 
-    public static void navigateAndDelete(ListNode head, int val) {
+    public void navigateAndDelete(int val) {
         ListNode curr = head;
         while (curr != null && curr.val != val) {
             curr = curr.next;
