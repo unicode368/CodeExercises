@@ -9,9 +9,8 @@ public class SpiralMatrix {
         int row = 0;
         int minRow = 0;
         int minCol = 0;
-        int maxCol = matrix.length - 1;
-        int maxRow = matrix[0].length - 1;
-        int temp;
+        int maxCol = matrix[0].length - 1;
+        int maxRow = matrix.length - 1;
         int k = 0;
         while (k < matrix.length * matrix[0].length) {
             if (row == minRow && col == minCol) {
@@ -55,7 +54,7 @@ public class SpiralMatrix {
                     if (k >= matrix.length * matrix[0].length) {
                         break;
                     }
-                    spiralMatrix.add(matrix[row][col]);
+                    spiralMatrix.add(matrix[row][minCol]);
                     k++;
                     row--;
                 }
@@ -69,6 +68,6 @@ public class SpiralMatrix {
 
     public static void main(String[] args) {
         System.out.println(Arrays.toString(spiralOrder(new int[][]{{1,2,3,4},
-                {5,6,7,8}, {9,10,11,12}, {13,14,15,16}}).toArray()));
+                {5,6,7,8}}).toArray()));
     }
 }
