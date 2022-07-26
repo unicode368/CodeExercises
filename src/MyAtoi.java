@@ -89,6 +89,6 @@ public class MyAtoi {
         } else if (number * sign <= Integer.MIN_VALUE) {
             return Integer.MIN_VALUE;
         }
-        return (int) number * ;
+        return (int) number * sign;
     }
 }
