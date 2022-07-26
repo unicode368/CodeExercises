@@ -28,7 +28,7 @@ public class MyAtoi {
         }
         long powOfTen = 1;
         while(number < Integer.MAX_VALUE && !digits.empty()) {
-            int digit = Character.getNumericValue(digits.pop());
+            int digit = digits.pop() - '0';
             if (digit != 0 && powOfTen >= Integer.MAX_VALUE) {
                 return sign == -1 ? Integer.MIN_VALUE : Integer.MAX_VALUE;
             }
@@ -51,7 +51,7 @@ public class MyAtoi {
         }
         int start = 0;
         int sign = 1;
-        int length = 0;
+        int length;
         long number = 0;
         char[] digits = new char[200];
         while(s.charAt(start) == ' ') {
@@ -89,6 +89,6 @@ public class MyAtoi {
         } else if (number * sign <= Integer.MIN_VALUE) {
             return Integer.MIN_VALUE;
         }
-        return (int) number * sign;
+        return (int) number * ;
     }
 }
